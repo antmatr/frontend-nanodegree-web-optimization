@@ -1,0 +1,38 @@
+[
+  {
+    "outputFileName": "css/style.min.css",
+    "inputFiles": [
+      "css/style.css"
+    ]
+  },
+  {
+    "outputFileName": "css/print.min.css",
+    "inputFiles": [
+      "css/print.css"
+    ]
+  },
+  {
+    "outputFileName": "js/perfmatters.min.js",
+    "inputFiles": [
+      "js/perfmatters.js"
+    ]
+  },
+  {
+    "outputFileName": "views/js/main.min.js",
+    "inputFiles": [
+      "views/js/main.js"
+    ]
+  },
+  {
+    "outputFileName": "views/css/bootstrap-grid.min.css",
+    "inputFiles": [
+      "views/css/bootstrap-grid.css"
+    ]
+  },
+  {
+    "outputFileName": "views/css/style.min.css",
+    "inputFiles": [
+      "views/css/style.css"
+    ]
+  }
+]
