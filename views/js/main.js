@@ -418,14 +418,7 @@ var pizzaElementGenerator = function (i) {
     return pizzaContainer;
 }
 
-
-
-// resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
-var resizePizzas = function (size) {
-    window.performance.mark("mark_start_resize"); // User Timing API function
-
-    // Both changePizzaSizes() and changeSliderLabel() are now removed
-    // and replaced by following code
+function updatePizzaSizes(size) {
     var container = document.getElementById("randomPizzas");
     switch (size) {
         case "1":
@@ -448,6 +441,15 @@ var resizePizzas = function (size) {
         default:
             console.log("bug in changeSliderLabel");
     }
+}
+
+// resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
+var resizePizzas = function (size) {
+    window.performance.mark("mark_start_resize"); // User Timing API function
+
+    // Both changePizzaSizes() and changeSliderLabel() are now removed
+    // and replaced by updatePizzaSizes function
+    updatePizzaSizes(size);
 
     // User Timing API is awesome
     window.performance.mark("mark_end_resize");
