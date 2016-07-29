@@ -371,7 +371,9 @@ var pizzaElementGenerator = function(i) {
   pizzaImageContainer = document.createElement("div");
   pizzaImage = document.createElement("img");
   pizzaDescriptionContainer = document.createElement("div");
-
+  
+// no longer creating randomPizzaContainers with inline styles,
+// those styles live in CSS now
   pizzaContainer.classList.add("randomPizzaContainer");
   pizzaContainer.id = "pizza" + i;                // gives each pizza element a unique id
   pizzaImageContainer.classList.add("col-md-6");
@@ -396,40 +398,34 @@ var pizzaElementGenerator = function(i) {
   return pizzaContainer;
 }
 
-// Both changePizzaSizes() and changeSliderLabel() are now replaced
-// by updatePizzaSizes() function
-// Alse moved this function out of resizePizzas();
-function updatePizzaSizes(size) {
-
-    // All styles now applied by adding class to pizzas-container
-    var container = document.querySelector("#randomPizzas");
-    switch (size) {
-        case "1":
-            document.querySelector("#pizzaSize").innerHTML = "Small";
-            container.classList.remove("medium", "large");
-            container.classList.add("small");
-            return;
-        case "2":
-            document.querySelector("#pizzaSize").innerHTML = "Medium";
-            container.classList.remove("small", "large");
-            container.classList.add("medium");
-            return;
-        case "3":
-            document.querySelector("#pizzaSize").innerHTML = "Large";
-            container.classList.remove("small", "medium");
-            container.classList.add("large");
-            return;
-        default:
-            console.log("bug in changeSliderLabel");
-    }
-}
-
-
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
 var resizePizzas = function(size) { 
   window.performance.mark("mark_start_resize");   // User Timing API function
 
-  updatePizzaSizes(size);
+  // Both changePizzaSizes() and changeSliderLabel() are now removed
+  // and replaced by following code
+  var container = document.querySelector("#randomPizzas");
+  switch (size) {
+      case "1":
+          // no longer changing sizes of every pizza-block manually
+          // changing CSS-class instead
+          document.querySelector("#pizzaSize").innerHTML = "Small";
+          container.classList.remove("medium", "large");
+          container.classList.add("small");
+          return;
+      case "2":
+          document.querySelector("#pizzaSize").innerHTML = "Medium";
+          container.classList.remove("small", "large");
+          container.classList.add("medium");
+          return;
+      case "3":
+          document.querySelector("#pizzaSize").innerHTML = "Large";
+          container.classList.remove("small", "medium");
+          container.classList.add("large");
+          return;
+      default:
+          console.log("bug in changeSliderLabel");
+  }
 
   // User Timing API is awesome
   window.performance.mark("mark_end_resize");
