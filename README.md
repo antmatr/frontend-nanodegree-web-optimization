@@ -11,6 +11,7 @@ If you prefer second option launching project via localhost might be needed.
 In this case you can run simple python local server following those steps ([python](https://www.python.org/) should be installed):
 - navigate to this project local folder (`cd your-path-to-the-folder`)
 - run python server using this command: `python -m http.server 8000`
+- open `localhost:8000/index.html` in browser
 
 ### Optimizations implemented
 - Images optimization
